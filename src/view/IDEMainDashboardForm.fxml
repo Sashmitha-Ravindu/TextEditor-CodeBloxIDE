@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="670.0" prefWidth="982.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IDEMainDashboardFormController">
+<AnchorPane fx:id="mainContext" prefHeight="670.0" prefWidth="934.0" style="-fx-background-color: #34495e;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IDEMainDashboardFormController">
    <children>
-      <BorderPane prefHeight="82.0" prefWidth="57.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="905.0">
+      <BorderPane prefHeight="64.0" prefWidth="57.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="0.0">
          <center>
             <ImageView fitHeight="49.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                <image>
@@ -21,71 +24,175 @@
                </image></ImageView>
          </center>
       </BorderPane>
-      <BorderPane layoutX="84.0" layoutY="12.0" prefHeight="58.0" prefWidth="129.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="769.0">
+      <BorderPane layoutX="84.0" layoutY="12.0" prefHeight="32.0" prefWidth="137.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="713.0" AnchorPane.topAnchor="12.0">
          <center>
-            <Label text="CodeBloxIDE" textFill="#f5f5f5" BorderPane.alignment="CENTER_LEFT">
+            <Label prefHeight="32.0" prefWidth="175.0" text="CodeBloxIDE" textFill="#f5f5f5" BorderPane.alignment="CENTER_LEFT">
                <font>
-                  <Font name="Ubuntu Bold" size="17.0" />
+                  <Font name="Ubuntu Bold" size="18.0" />
                </font>
             </Label>
          </center>
       </BorderPane>
-      <Separator layoutX="32.0" layoutY="67.0" prefHeight="17.0" prefWidth="853.0" />
-      <BorderPane layoutX="23.0" layoutY="82.0" prefHeight="43.0" prefWidth="345.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="614.0">
+      <BorderPane layoutX="23.0" layoutY="82.0" prefHeight="43.0" prefWidth="270.0" AnchorPane.leftAnchor="23.0">
          <left>
-            <SplitMenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="File" BorderPane.alignment="CENTER">
+            <SplitMenuButton fx:id="menuFile" mnemonicParsing="false" prefHeight="26.0" prefWidth="85.0" text="File" BorderPane.alignment="CENTER">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem fx:id="optionNew" mnemonicParsing="false" text="New" />
+                <MenuItem fx:id="optionOpen" mnemonicParsing="false" text="Open" />
+                  <MenuItem fx:id="optionSave" mnemonicParsing="false" text="Save" />
+                  <MenuItem fx:id="optionPrint" mnemonicParsing="false" text="Print" />
+                  <MenuItem fx:id="optionFind" mnemonicParsing="false" text="Find" />
+                  <MenuItem fx:id="optionReplace" mnemonicParsing="false" text="Replace" />
+                  <MenuItem fx:id="optionExit" mnemonicParsing="false" text="Exit" />
               </items>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </SplitMenuButton>
          </left>
          <center>
-            <SplitMenuButton mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Edit" BorderPane.alignment="CENTER">
+            <SplitMenuButton fx:id="menuEdit" mnemonicParsing="false" prefHeight="26.0" prefWidth="98.0" text="Edit" BorderPane.alignment="CENTER">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem fx:id="optionCut" mnemonicParsing="false" text="Cut" />
+                <MenuItem fx:id="optionCopy" mnemonicParsing="false" text="Copy" />
+                  <MenuItem fx:id="optionPaste" mnemonicParsing="false" text="Paste" />
+                  <MenuItem fx:id="optionSelectAll" mnemonicParsing="false" text="SelectAll" />
               </items>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </SplitMenuButton>
          </center>
          <right>
-            <SplitMenuButton mnemonicParsing="false" text="Help" BorderPane.alignment="CENTER">
+            <SplitMenuButton fx:id="menuHelp" mnemonicParsing="false" text="Help" BorderPane.alignment="CENTER">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
+                <MenuItem fx:id="optionAboutUs" mnemonicParsing="false" text="About Us" />
               </items>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </SplitMenuButton>
          </right>
       </BorderPane>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="23.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" />
-      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="23.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnNewFile" contentDisplay="GRAPHIC_ONLY" layoutX="23.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnNewFile_OnAction" prefHeight="32.0" prefWidth="36.0" />
+      <ImageView fx:id="imgNewFile" fitHeight="32.0" fitWidth="36.0" layoutX="23.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/new%20folder.png" />
-         </image></ImageView>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="74.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" />
-      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="74.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button fx:id="btnSave" contentDisplay="GRAPHIC_ONLY" layoutX="74.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnSave_OnAction" prefHeight="32.0" prefWidth="36.0" />
+      <ImageView fx:id="imgSave" fitHeight="32.0" fitWidth="36.0" layoutX="74.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/save.png" />
-         </image></ImageView>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="121.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" />
-      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="121.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <Button fx:id="btnCopy" contentDisplay="GRAPHIC_ONLY" layoutX="121.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnCopy_OnAction" prefHeight="32.0" prefWidth="36.0" />
+      <ImageView fx:id="imgCopy" fitHeight="32.0" fitWidth="36.0" layoutX="121.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/copy.png" />
-         </image></ImageView>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="166.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" />
-      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="166.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <Button fx:id="btnCut" contentDisplay="GRAPHIC_ONLY" layoutX="166.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnCut_OnAction" prefHeight="32.0" prefWidth="36.0" />
+      <ImageView fx:id="imgCut" fitHeight="32.0" fitWidth="36.0" layoutX="166.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/cut.png" />
-         </image></ImageView>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="210.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" />
-      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="210.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <Button fx:id="btnPaste" contentDisplay="GRAPHIC_ONLY" layoutX="210.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnPaste_OnAction" prefHeight="32.0" prefWidth="36.0" />
+      <ImageView fx:id="imgPaste" fitHeight="32.0" fitWidth="36.0" layoutX="210.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/paste.png" />
-         </image></ImageView>
-      <Button contentDisplay="GRAPHIC_ONLY" layoutX="257.0" layoutY="131.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="36.0" />
-      <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="257.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <Button fx:id="btnSelectAll" contentDisplay="GRAPHIC_ONLY" layoutX="257.0" layoutY="131.0" mnemonicParsing="false" onAction="#btnSelectAll_OnAction" prefHeight="32.0" prefWidth="36.0" />
+      <ImageView fx:id="imgSelectAll" fitHeight="32.0" fitWidth="36.0" layoutX="257.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/selectAll.png" />
-         </image></ImageView>
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <BorderPane layoutX="515.0" layoutY="82.0" prefHeight="43.0" prefWidth="293.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="161.0">
+         <left>
+            <Label text="Find: " textFill="#f2f2f2" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <TextField fx:id="txtFind" prefHeight="26.0" prefWidth="163.0" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <BorderPane prefHeight="43.0" prefWidth="66.0" BorderPane.alignment="CENTER">
+               <center>
+                  <Button fx:id="btnFind" mnemonicParsing="false" onAction="#btnFind_OnAction" text="Find" BorderPane.alignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </center>
+            </BorderPane>
+         </right>
+      </BorderPane>
+      <BorderPane layoutX="515.0" layoutY="131.0" prefHeight="43.0" prefWidth="412.0" AnchorPane.leftAnchor="515.0" AnchorPane.rightAnchor="42.0">
+         <left>
+            <Label text="Replace: " textFill="#f2efef" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <TextField fx:id="txtReplace" BorderPane.alignment="CENTER" />
+         </center>
+         <right>
+            <BorderPane prefHeight="43.0" prefWidth="185.0" BorderPane.alignment="CENTER">
+               <right>
+                  <Button fx:id="btnReplaceAll" mnemonicParsing="false" onAction="#btnReplaceAll_OnAction" text="Replace All" BorderPane.alignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </right>
+               <center>
+                  <Button fx:id="btnReplace" mnemonicParsing="false" onAction="#btnReplace_OnAction" prefHeight="26.0" prefWidth="79.0" text="Replace" BorderPane.alignment="CENTER">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </center>
+            </BorderPane>
+         </right>
+      </BorderPane>
+      <BorderPane fx:id="wordsCountPane" layoutX="835.0" layoutY="625.0" prefHeight="31.0" prefWidth="100.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="34.0">
+         <right>
+            <Label fx:id="lblWordsCount" prefHeight="16.0" prefWidth="27.0" text="0" textFill="#dddbdb" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <Label text="Words: " textFill="#dddbdb" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <BorderPane fx:id="findsCountPane" layoutX="21.0" layoutY="625.0" prefHeight="31.0" prefWidth="87.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="21.0">
+         <right>
+            <Label fx:id="lblFindsCount" prefHeight="16.0" prefWidth="32.0" text="0" textFill="#dddbdb" BorderPane.alignment="CENTER" />
+         </right>
+         <center>
+            <Label text="Finds: " textFill="#dddbdb" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="30.0" layoutY="197.0" prefHeight="420.0" prefWidth="902.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="197.0">
+         <center>
+            <TextArea fx:id="txtArea" prefHeight="420.0" prefWidth="933.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+      <BorderPane layoutX="47.0" layoutY="64.0" prefHeight="12.0" prefWidth="842.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="45.0">
+         <center>
+            <Separator prefHeight="12.0" prefWidth="845.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>
